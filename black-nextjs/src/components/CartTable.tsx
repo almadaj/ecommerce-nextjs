@@ -22,11 +22,17 @@ const CartTableRow = (props: { entry: CartEntry }) => {
             <Image
               src={props.entry.product.imageUrl}
               alt={props.entry.product.name}
-              height={500}
-              width={600}
+              height={80}
+              width={90}
             />
           </Col>
-          <Col xs={8} md={10} lg={11}>
+          <Col
+            style={{
+              marginLeft: "5rem",
+              alignItems: "center",
+              paddingTop: "1rem",
+            }}
+          >
             {props.entry.product.name}
           </Col>
         </Row>
@@ -47,12 +53,16 @@ const CartTableRow = (props: { entry: CartEntry }) => {
           size="sm"
           onClick={() => removeProduct(props.entry.product.id)}
         >
-          –
+          -
         </Button>
       </td>
     </tr>
   );
 };
+
+// src/components/CartTable.tsx
+
+// ...
 
 export default function CartTable() {
   const [cartEntries, setCartEntries] = useState<CartEntry[]>([]);
